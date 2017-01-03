@@ -1,10 +1,11 @@
 {
-    "name": "Roku Remote",
+    "name": "RokuRemote",
     "version": "1.0.0",
     "description": "Control your Roku from your computer.",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "package": "rm -rf ./dist; electron-packager . RokuRemote --arch=x64 --platform=darwin,win32 --version=1.4.13 --out=./dist --overwrite"
     },
     "author": "Chris Riebschlager",
     "devDependencies": {
