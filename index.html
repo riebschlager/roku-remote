@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app="RokuApp" ng-controller="RokuController">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Roku Remote</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="container" ng-if="isSearching">
+        <h1 class="text-center">Searching...</h1>
+    </div>
+
+    <div class="container main-buttons" ng-if="!isSearching">
+        <h1 class="text-center">{{device['model-name']}}</h1>
+        <div class="row">
+            <div class="col-xs-2">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Back')" ng-mouseup="keyup('Back')" type="button">
+                    <span class="fa fa-2x fa-arrow-left"></span>
+                </button>
+            </div>
+            <div class="col-xs-2 col-xs-offset-8">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Home')" ng-mouseup="keyup('Home')" type="button">
+                    <span class="fa fa-2x fa-home"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Up')" ng-mouseup="keyup('Up')" type="button">
+                    <span class="fa fa-2x fa-arrow-circle-up"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Left')" ng-mouseup="keyup('Left')" type="button">
+                    <span class="fa fa-2x fa-arrow-circle-left"></span>
+                </button>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Select')" ng-mouseup="keyup('Select')" type="button">
+                    <span class="fa fa-2x fa-check-circle-o"></span>
+                </button>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Right')" ng-mouseup="keyup('Right')" type="button">
+                    <span class="fa fa-2x fa-arrow-circle-right"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Down')" ng-mouseup="keyup('Down')" type="button">
+                    <span class="fa fa-2x fa-arrow-circle-down"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('InstantReplay')" ng-mouseup="keyup('InstantReplay')" type="button">
+                    <span class="fa fa-2x fa-undo"></span>
+                </button>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Search')" ng-mouseup="keyup('Search')" type="button">
+                    <span class="fa fa-2x fa-search"></span>
+                </button>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Info')" ng-mouseup="keyup('Info')" type="button">
+                    <span class="fa fa-2x fa-asterisk"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Rev')" ng-mouseup="keyup('Ref')" type="button">
+                    <span class="fa fa-2x fa-backward"></span>
+                </button>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Play')" ng-mouseup="keyup('Play')" type="button">
+                    <span class="fa fa-2x fa-play"></span>
+                </button>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('Fwd')" ng-mouseup="keyup('Fwd')" type="button">
+                    <span class="fa fa-2x fa-forward"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-block btn-default" ng-mousedown="keydown('FindRemote')" ng-mouseup="keyup('FindRemote')" type="button">Find Remote</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container channels" ng-if="!isSearching">
+        <a href="#" ng-click="openApp(app._id)" ng-repeat="app in apps">
+            <img class="img-responsive" src="" ng-src="{{app.icon}}" alt="">
+        </a>
+    </div>
+
+    <div class="container" ng-if="!isSearching">
+        <h3>{{device['model-name']}}</h3>
+        <p ng-repeat="deviceProperty in deviceProperties">{{deviceProperty}}</p>
+    </div>
+
+    <script src="./assets/js/xml2json.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

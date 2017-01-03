@@ -1,0 +1,14 @@
+html, body {
+    background-color: #333;
+    color: #ccc;
+}
+
+.main-buttons .row {
+    margin-bottom: 30px;
+}
+
+.channels a {
+    display: block;
+    width: 25%;
+    float: left;
+}

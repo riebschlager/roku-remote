@@ -1,0 +1,19 @@
+{
+    "name": "Roku Remote",
+    "version": "1.0.0",
+    "description": "Control your Roku from your computer.",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "author": "Chris Riebschlager",
+    "devDependencies": {
+        "electron": "^1.4.13"
+    },
+    "dependencies": {
+        "angular": "^1.6.1",
+        "bootstrap": "^3.3.7",
+        "font-awesome": "^4.7.0",
+        "node-ssdp": "^3.0.0-beta2"
+    }
+}
